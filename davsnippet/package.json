@@ -1,0 +1,26 @@
+{
+    "name": "davsnippet",
+    "displayName": "DavSnippet",
+    "publisher": "Steve-WZ",
+    "description": "Letters shortcuts for AngularJS/tianes",
+    "version": "1.0.1",
+    "icon": "images/flash.png",
+    "engines": {
+        "vscode": "^1.33.0"
+    },
+    "categories": [
+        "Snippets"
+    ],
+    "contributes": {
+        "snippets": [
+            {
+                "language": "javascript",
+                "path": "./snippets/js.json"
+            },
+            {
+                "language": "html",
+                "path": "./snippets/html.json"
+            }
+        ]
+    }
+}
