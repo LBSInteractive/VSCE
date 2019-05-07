@@ -3,7 +3,7 @@
     "displayName": "DavSnippet",
     "publisher": "Steve-WZ",
     "description": "Letters shortcuts for AngularJS/tianes",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "icon": "images/flash.png",
     "engines": {
         "vscode": "^1.33.0"

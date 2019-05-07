@@ -3,8 +3,8 @@
         "prefix": "davClose",
         "body": [
             "\\$dialog.open({",
-            "    status: \"${1:textError}\",",
-            "    content: \"Ha ocurrido un error inesperado\",",
+            "    status: \"${1:error}\",",
+            "    content: \"${2:Ha ocurrido un error inesperado}\",",
             "    accept: () => {\n",
             "        \\$utilities.closeApp();\n\r",
             "    }",
