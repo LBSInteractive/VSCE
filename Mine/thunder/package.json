@@ -1,0 +1,22 @@
+{
+    "name": "thunder-lwc",
+    "displayName": "Thunder",
+    "description": "Snippets for lwc (Salesforce)",
+    "version": "0.0.1",
+    "publisher": "steve-WZ",
+    "icon": "images/flash.png",
+    "engines": {
+        "vscode": "^1.38.0"
+    },
+    "categories": [
+        "Snippets"
+    ],
+    "contributes": {
+        "snippets": [
+            {
+                "language": "xml",
+                "path": "./snippets/XML-lwc.json"
+            }
+        ]
+    }
+}

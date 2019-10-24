@@ -3,8 +3,8 @@
         "prefix": "davClose",
         "body": [
             "\\$dialog.open({",
-            "    status: \"${1:error}\",",
-            "    content: \"${2:Ha ocurrido un error inesperado}\",",
+            "    status: \"${1|attention,success,error,info|}\",",
+            "    content: \"${2|Ha ocurrido un error inesperado,myError|}\",",
             "    accept: () => {\n",
             "        \\$utilities.closeApp();\n\r",
             "    }",
@@ -12,5 +12,20 @@
             "\n$0"
         ],
         "description": "Mensaje de error y bloqueo de WA"
+    },
+    "(Llamar servicio)": {
+        "prefix": "davService",
+        "body": "\\$scope.\\$api.${1:nameService}(${2:data}).then(response => {$3}, response => {$4});$0",
+        "description": "Ejecutar servicio como promesa desde instancia $api"
+    },
+    "(Filtro fecha Y-M-D-TH-M-S-MS)": {
+        "prefix": "davDate_Full",
+        "body": "\\$filter('date')(new Date(), '${1: yyyy-MM-dd-Thh:mm:ss:sss }')$0",
+        "description": "Ejecutar servicio como promesa desde instancia $api"
+    },
+    "(Filtro fecha)": {
+        "prefix": "davDate",
+        "body": "\\$filter('date')(${1 : new Date() }, '${2: yyyy-MM-dd }')$0",
+        "description": "Ejecutar servicio como promesa desde instancia $api"
     }
 }

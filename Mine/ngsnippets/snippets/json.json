@@ -1,0 +1,7 @@
+{
+    "(Angular - Configurator Styles)": {
+        "prefix": "ngStyles",
+        "body": ",\n ${1|\"src/styles.less\",\"src/styles.css\",\"src/styles.sass\",\"my/styles.less\",\"src/styles.less\"|}$0",
+        "description": "Angular Configurator Styles"
+    }
+}

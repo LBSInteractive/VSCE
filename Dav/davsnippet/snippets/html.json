@@ -1,0 +1,22 @@
+{
+    "(Calendar)": {
+        "prefix": "davCalendar",
+        "body": ["<gs-row>", "\t$0", "</gs-row>"],
+        "description": "Calendario con min-date,max-date"
+    },
+    "(Bloque gs-row)": {
+        "prefix": "davGsr",
+        "body": ["<gs-row>", "\t$0", "</gs-row>"],
+        "description": "Bloque gs-row"
+    },
+    "(Bloque WhiteFrame)": {
+        "prefix": "davWhite",
+        "body": "<gs-row><gs col=\"x-12\"><box>$0\n</box></gs></gs-row>",
+        "description": "Bloque de trabajo WhiteFrame"
+    },
+    "(Icono FONTAWESOME)": {
+        "prefix": "davWhite",
+        "body": "<i class=\"fa fa-building\" color=\"asbestos\"></i>",
+        "description": "Kit de Iconos dav"
+    }
+}

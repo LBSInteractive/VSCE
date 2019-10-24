@@ -1,0 +1,29 @@
+{
+    "name": "ngsnippets",
+    "displayName": "ngSnippets",
+    "publisher": "Steve-WZ",
+    "description": "Snippets for AngularJS,Angular,TypeScript,HTML,Javascript",
+    "version": "0.0.1",
+    "icon": "images/flash.png",
+    "engines": {
+        "vscode": "^1.33.0"
+    },
+    "categories": [
+        "Snippets"
+    ],
+    "contributes": {
+        "snippets": [{
+                "language": "javascript",
+                "path": "./snippets/js.json"
+            },
+            {
+                "language": "html",
+                "path": "./snippets/html.json"
+            },
+            {
+                "language": "json",
+                "path": "./snippets/json.json"
+            }
+        ]
+    }
+}

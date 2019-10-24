@@ -1,0 +1,14 @@
+{
+    "(XML Targets)": {
+        "prefix": "lwcTarget",
+        "body": [
+            "<targets>",
+            "    <target>lightning__AppPage</target>",
+            "    <target>lightning__RecordPage</target>",
+            "    <target>lightning__HomePage</target>",
+            "</targets>",
+            "$0"
+        ],
+        "description": "(Migrate Interfaces Aura) Records in AppPage,RecordPage,HomePage"
+    }
+}

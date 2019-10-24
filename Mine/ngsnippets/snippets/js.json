@@ -1,0 +1,16 @@
+{
+    "(Error msg and wa block)": {
+        "prefix": "davClose",
+        "body": [
+            "\\$dialog.open({",
+            "    status: \"${1:error}\",",
+            "    content: \"${2:Ha ocurrido un error inesperado}\",",
+            "    accept: () => {\n",
+            "        \\$utilities.closeApp();\n\r",
+            "    }",
+            "});",
+            "\n$0"
+        ],
+        "description": "Mensaje de error y bloqueo de WA"
+    }
+}
