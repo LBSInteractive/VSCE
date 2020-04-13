@@ -1,0 +1,86 @@
+{
+    "(@anotation binding)": {
+        "prefix": "lwc-bind",
+        "body": [
+            "// import { track, api } from 'lwc';",
+            "${1|@track,@api|} ${2:variableName} = ${3:val};"
+        ],
+        "description": "(@track - For Array and Binding), (@api get access external call from parent)"
+    },
+    "(Handle Events)": {
+        "prefix": "lwc-catchEvent", 
+        "body": [
+            "handle${1:NameCamelCase}Change(event) {",
+            "    this.${2:variableName} = event.target.value;",
+            "}",
+            "$0"
+        ],
+        "description": "(Handle tracker) listener event of var"
+    },
+    "(Life Hooks Dom Run)": {
+        "prefix": "lwc-init",
+        "body": [
+            "connectedCallback() {",
+            "    //Instrucciones a ejecutar",
+            "}",
+            "$0"
+        ],
+        "description": "(Life Hooks) - Se ejecuta cuando el componente es insertado al DOM"
+    },
+    "(Life Hooks Dom Delete)": {
+        "prefix": "lwc-delete",
+        "body": [
+            "disconnectedCallback() {",
+            "    //Instrucciones a ejecutar",
+            "}",
+            "$0"
+        ],
+        "description": "(Life Hooks) - Se ejecuta cuando el componente es eliminado del DOM"
+    },
+    "(Event-Sync TimeOut)": {
+        "prefix": "lwc-timeout",
+        "body": [
+            "setTimeout(() => {",
+            "    //Instrucciones a ejecutar",
+            "}, ${1:MiliSeg});",
+            "$0"
+        ],
+        "description": "Acción sincrona, pausa el proceso durante un tiempo"
+    },
+    "(Obj)": {
+        "prefix": "lwc-obj",
+        "body": [
+            "${1:varName} = [",
+            "   {",
+            "       Id: 1,",
+            "       Name: 'Amy Taylor',",
+            "       Title: 'VP of Engineering',",
+            "   },",
+            "   {",
+            "       Id: 2,",
+            "       Name: 'Michael Jones',",
+            "       Title: 'VP of Sales',",
+            "   }",
+            "];",
+            "$0"
+        ],
+        "description": "Arreglo de objetos"
+    },
+    "(Data Export)": {
+        "prefix": "lwc-dataExport",
+        "body": [
+            "// Remember, use this without imports, only file, this need xml simple data without exposition, you need import this where you want use",
+            "// XML: ${4:fileName}.js-meta.xml",
+            "// you need name this file",
+            "// Import:",
+            "// import { ${1:nameArrayData} } from 'c/${3:fileName}';",
+            "export const ${2:nameArrayData} = [",
+            "   {",
+            "       \"nombre\":\"prueba\"",
+            "   }",
+            "];",
+            "$0"
+        ],
+        "description": "Exporta un conjunto de datos"
+    }
+}

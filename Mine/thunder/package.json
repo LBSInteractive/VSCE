@@ -15,7 +15,23 @@
         "snippets": [
             {
                 "language": "xml",
-                "path": "./snippets/XML-lwc.json"
+                "path": "./snippets/xml-lwc.json"
+            },
+            {
+                "language": "javascript",
+                "path": "./snippets/js-lwc.json"
+            }, 
+            {
+                "language": "html",
+                "path": "./snippets/html-lwc.json"
+            },
+            {
+                "language": "apex",
+                "path": "./snippets/apex-lwc.json"
+            },
+            {
+                "language": "bat",
+                "path": "./snippets/batch-lwc.json"
             }
         ]
     }
