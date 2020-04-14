@@ -8,7 +8,7 @@
         "description": "(@track - For Array and Binding), (@api get access external call from parent)"
     },
     "(Handle Events)": {
-        "prefix": "lwc-catchEvent", 
+        "prefix": "lwc-catchEvent",
         "body": [
             "handle${1:NameCamelCase}Change(event) {",
             "    this.${2:variableName} = event.target.value;",
@@ -82,5 +82,69 @@
             "$0"
         ],
         "description": "Exporta un conjunto de datos"
+    },
+    "(Setters And Getters)": {
+        "prefix": "lwc-setter",
+        "body": [
+            "// import { track, api } from 'lwc';",
+            "// Binding this component view",
+            "@track ${1:varView};",
+            "",
+            "// Getter var from Parent",
+            "_${2:varView} = undefined;",
+            "",
+            "// Use set and get to process the value every time it's",
+            "// requested while switching between products",
+            "set ${6:apiName}(valueFromParent) {",
+            "    this._${3:varView} = valueFromParent;",
+            "    // Retorna el valor buscado dentro de un array",
+            "    this.${4:varView} = array.find(${8:varTemporal} => ${8:varTemporal}.value === valueFromParent);",
+            "}",
+            "",
+            "// Getter for Parent view and Controller",
+            "@api get ${7:apiName}(){",
+            "    return this._${5:varView};",
+            "}",
+            "$0"
+        ],
+        "description": "Genera un get y set api de componente hijo disponible para consumir con *call son* desde padre"
+    },
+    "(Get Record on Line)": {
+        "prefix": "lwc-getRecord",
+        "body": [
+            "// Required on top class",
+            "// import { wire } from 'lwc';",
+            "// import { getRecord, getFieldValue } from 'lightning/uiRecordApi';",
+            "// import Id from '@salesforce/user/Id';",
+            "// import NAME_FIELD from '@salesforce/schema/User.Name';",
+            "// Schema of fields",
+            "// const fields = [NAME_FIELD];",
+            "",
+            "",
+            "// Required inside Class {}",
+            "${1:varId} = Id;",
+            "",
+            "@wire(getRecord, { recordId: '$${2:varId}', fields })",
+            "${3:varGetRecord};",
+            "",
+            "get ${4:nameMethod}() {",
+            "    return getFieldValue(this.${3:varGetRecord}.data, NAME_FIELD);",
+            "}",
+            "$0"
+        ],
+        "description": "Obtiene valores de los campos del registro desde la pagina en donde es ubicado el componente"
+    },
+    "(Apex inside)": {
+        "prefix": "lwc-callApex",
+        "body": [
+            "// import { wire } from 'lwc';",
+            "// import ${1:methodName} from '@salesforce/apex/${4:className}.${2:methodName}';",
+            "// Rember create apex class with command lwc-apex",
+            "",
+            "paramVal = null;",
+            "@wire(${3:methodName}, { paramName: '$paramVal' }) varReturnMethod;",
+            "$0"
+        ],
+        "description": "Permite llamar un apex con o sin parametros"
     }
 }

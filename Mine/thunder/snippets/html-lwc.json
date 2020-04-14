@@ -1,19 +1,4 @@
 {
-    "(Call other LWC)": {
-        "prefix": "call",
-        "body": [
-            "<c-${1:camel}-${2:case}-${3:name} ${4:atribute}={${5:localVariable}}></c-${6:camel}-${7:case}-${8:name}>",
-            "$0"
-        ],
-        "description": "(Permite atraer y cambiar atributos publicos de otro lwc) los atributos deben ser @api"
-    },
-    "(Condicional)": {
-        "prefix": "if",
-        "body": [
-            "if:${1|true,false|}={${2:variable}}"
-        ],
-        "description": "(Permite ocultar o mostrar un elemento del DOM) debe ser incluido como atributo"
-    },
     "(Trigger Event)": {
         "prefix": "lwc-onchange",
         "body": [
@@ -40,5 +25,15 @@
             "if:${1|true,false|}={${2:var}}"
         ],
         "description": "Oculta o no un elemento del DOM con la etiqueta if"
+    },
+    "(call Son)": {
+        "prefix": "lwc-callson",
+        "body": [
+            "<!-- El nombre del componente debe ser camelCase: nameComponent = c-name-component -->",
+            "<!-- apiName = @api var -->",
+            "<c-${1:name-component} ${3:apiName}={${4:val}}> </c-${2:name-component}>",
+            "$0"
+        ],
+        "description": "Puede utilizar una directiva hijo, pasando valores por sus atributos y usando la plantilla html de la directiva"
     }
 }

@@ -1,0 +1,18 @@
+{
+    "(Apex inside lwc)": {
+        "prefix": "lwc-apex",
+        "body": [
+            "// ** Class **",
+            "// public with sharing class myClassName {}",
+            "",
+            "",
+            "// ** On Class **",
+            "@AuraEnabled(cacheable=true)",
+            "public static Double ${1:methodName}() {",
+            "    return 3886.79;",
+            "}",
+            "$0"
+        ],
+        "description": "Clase que se puede exponer hacia lwc, recuerde usar lwc-callApex en un componente JS"
+    }
+}
