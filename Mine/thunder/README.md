@@ -3,7 +3,7 @@
 _Bienvenido! 
 _Thunder te permite crear estructuras LWC para tus componentes Salesforce, esto usando un simple comando ---> lwc
 
-![](Apex.gif)
+![Apex](https://github.com/LBSInteractive/VSCE/blob/master/Mine/thunder/Apex.gif)
 
 _Nota: Thunder esta en su versión Beta, espero que lo disfrutes.
 
@@ -69,4 +69,4 @@ lwc-tag --> (Add access LWC for different pages) Records in AppPage,RecordPage a
 ```
 lwc-init
 ```
-![](Batch.gif)
+![Batch](https://github.com/LBSInteractive/VSCE/blob/master/Mine/thunder/Batch.gif)
