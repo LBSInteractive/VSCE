@@ -10,7 +10,7 @@
 lwc-yourCommand
 ```
 #### Example
-![Apex](/images/Apex.gif)
+![Apex](./images/Apex.gif)
 
 **Nota:** Thunder esta en su versión Beta, espero que lo disfrutes.
 ***  
@@ -81,4 +81,4 @@ lwc-tag --> (Add access LWC for different pages) Records in AppPage,RecordPage a
 ```
 lwc-init
 ```
-![Batch](./images/batch.gif)
+![Batch](./images/Batch.gif)
