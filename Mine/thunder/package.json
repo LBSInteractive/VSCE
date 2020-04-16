@@ -2,7 +2,7 @@
     "name": "thunder-lwc",
     "displayName": "Thunder",
     "description": "Snippets for lwc (Salesforce)",
-    "version": "1.8.0",
+    "version": "1.9.0",
     "publisher": "Steve-DevOps",
     "icon": "images/flash.png",
     "engines": {
