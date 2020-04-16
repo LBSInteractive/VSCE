@@ -1,42 +1,54 @@
-# Gracias por descargar y bienvenido a Thunder!
-
-_Bienvenido! 
-_Thunder te permite crear estructuras LWC para tus componentes Salesforce, esto usando un simple comando ---> lwc
-
-![Apex](https://github.com/LBSInteractive/VSCE/blob/master/Mine/thunder/Apex.gif)
-
-_Nota: Thunder esta en su versión Beta, espero que lo disfrutes.
-
-## Requerimientos 📋
-
-_Pluging SFDX --> https://developer.salesforce.com/tools/sfdxcli
+*** 
+##  Gracias por descargar y bienvenido a Thunder!
+*** 
 
 
+  
+  Crear estructuras LWC para tus componentes de Salesforce usando el comando  
+
+```
+lwc-yourCommand
+```
+#### Example
+![Apex](/images/Apex.gif)
+
+**Nota:** Thunder esta en su versión Beta, espero que lo disfrutes.
+***  
+## 📋 Requerimientos 
+
+* [(SFDX CLI) Instala - Aquí](https://developer.salesforce.com/tools/sfdxcli)  
+* [(SalesForce Extension Pack) Instala - Aquí](https://marketplace.visualstudio.com/items?itemName=salesforce.salesforcedx-vscode)
+
+*** 
 ## Problemas conocidos
 
-- No identificados
+- No registrados
+*** 
 
-## Notas de la versión 🔧
-_Añadido
+
+## 🔧 Notas de la versión 
+**Nuevo**
+### 1.0.0
 - Apex (lwc-apex)
 - Batch (lwc-init, lwc-install)
 
-### 1.0.0
+*** 
 
-_LWC Snippets
 
-#|APEX|
+## Comandos
+
+## |APEX|
 ```
 lwc-apex --> Clase que se puede exponer hacia lwc, recuerde usar lwc-callApex en un componente JS
 ```
 
-#|BATCH|
+## |BATCH|
 ```
 lwc-install --> Instala servidor de pruebas LWC
 lwc-init --> Inicia el servidor de pruebas LWC
 ```
 
-#|HTML|
+## |HTML|
 ```
 lwc-onchange --> Permite disparar un evento en etiquetas </lightning-input>
 lwc-repeat --> Permite repetir un arreglo dentro de una plantilla del tipo </template>
@@ -44,7 +56,7 @@ lwc-if --> Oculta o no un elemento del DOM con la etiqueta if
 lwc-callson --> Puede utilizar una directiva hijo, pasando valores por sus atributos y usando la plantilla html de la directiva
 ```
 
-#|JS|
+## |JS|
 ```
 lwc-bind --> (@track - For Array and Binding), (@api get access external call from parent)
 lwc-catchEvent --> (Handle tracker) listener event of var
@@ -58,15 +70,15 @@ lwc-getRecord --> Obtiene valores de los campos del registro desde la pagina en 
 lwc-callApex --> Permite llamar un apex con o sin parametros
 ```
 
-#|XML| only lwc, no Apex
+## |XML| _only lwc, no Apex_
 ```
 lwc-xml --> (XML Base) General configs for xml base
 lwc-tag --> (Add access LWC for different pages) Records in AppPage,RecordPage and others parts
 ```
 
-
-###Example
+*** 
+## Example
 ```
 lwc-init
 ```
-![Batch](https://github.com/LBSInteractive/VSCE/blob/master/Mine/thunder/Batch.gif)
+![Batch](./images/batch.gif)
