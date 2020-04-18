@@ -2,25 +2,26 @@
     "(Install Server LWC SFDX)": {
         "prefix": "lwc-install",
         "body": [
-            "// Remember you need install SFDX and Start Batch in project path",
-            "// 1.Control + Shift + P",
-            "// 2.Focus Terminal",
-            "// 3.Page and Execute next command",
+            "$LINE_COMMENT ** Recuerde instalar el SFDX CLI **",
+            "$LINE_COMMENT ** Ejecute en la raiz de su proyecto LWC **",
+            "$LINE_COMMENT ** 1.Control + Shift + P **",
+            "$LINE_COMMENT ** 2.Focus Terminal **",
+            "$LINE_COMMENT ** 3.Copie y ejecute el siguiente comando en la consola **",
             "sfdx plugins:install @salesforce/lwc-dev-server",
             "$0"
         ],
-        "description": "Instala servidor de pruebas LWC"
+        "description": "Instalas el servidor de pruebas LWC"
     },
     "(Start Server LWC SFDX)": {
         "prefix": "lwc-init",
         "body": [
-            "// Remember you need execute lwc-install command",
-            "// 1.Control + Shift + P",
-            "// 2.Focus Terminal",
-            "// 3.Page and Execute next command",
+            "$LINE_COMMENT ** Recuerde ejecutar el comando (lwc-install) antes de ejecutar este comando **",
+            "$LINE_COMMENT ** 1.Control + Shift + P **",
+            "$LINE_COMMENT ** 2.Focus Terminal **",
+            "$LINE_COMMENT ** 3.Copie y ejecute el siguiente comando en la consola **",
             "sfdx force:lightning:lwc:start",
             "$0"
         ],
-        "description": "Inicia el servidor de pruebas LWC"
+        "description": "Inicias el servidor de pruebas LWC"
     }
 }

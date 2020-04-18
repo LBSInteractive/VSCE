@@ -2,20 +2,22 @@
     "(@anotation binding)": {
         "prefix": "lwc-bind",
         "body": [
-            "// import { track, api } from 'lwc';",
-            "${1|@track,@api|} ${2:variableName} = ${3:val};"
+            "$LINE_COMMENT ** Si usas Track debes agregar el import en las primeras lineas de clase ** import { track } from 'lwc';",
+            "$LINE_COMMENT ** Si usas Api debes agregar el import en las primeras lineas de clase** import { api } from 'lwc';",
+            "${1|@track,@api|} varName = ${2|undefined,null|};"
         ],
-        "description": "(@track - For Array and Binding), (@api get access external call from parent)"
+        "description": "(Usa @track solo en caso de usar Array o Objetos), (Usa @api para permitir el acceso entre componentes Padre a Hijo)"
     },
     "(Handle Events)": {
         "prefix": "lwc-catchEvent",
         "body": [
-            "handle${1:NameCamelCase}Change(event) {",
-            "    this.${2:variableName} = event.target.value;",
+            "$LINE_COMMENT ** No modifiques -> event.target.value **",
+            "methodName(event) {",
+            "    this.$1{yourVar} = event.target.value;",
             "}",
             "$0"
         ],
-        "description": "(Handle tracker) listener event of var"
+        "description": "Usalo en eventos"
     },
     "(Life Hooks Dom Run)": {
         "prefix": "lwc-init",
@@ -40,6 +42,7 @@
     "(Event-Sync TimeOut)": {
         "prefix": "lwc-timeout",
         "body": [
+            "$LINE_COMMENT ** Usalo dentro de un methodo ** ",
             "setTimeout(() => {",
             "    //Instrucciones a ejecutar",
             "}, ${1:MiliSeg});",
@@ -50,7 +53,7 @@
     "(Obj)": {
         "prefix": "lwc-obj",
         "body": [
-            "${1:varName} = [",
+            "varName = [",
             "   {",
             "       Id: 1,",
             "       Name: 'Amy Taylor',",
@@ -69,56 +72,55 @@
     "(Data Export)": {
         "prefix": "lwc-dataExport",
         "body": [
-            "// Remember, use this without imports, only file, this need xml simple data without exposition, you need import this where you want use",
-            "// XML: ${4:fileName}.js-meta.xml",
-            "// you need name this file",
-            "// Import:",
-            "// import { ${1:nameArrayData} } from 'c/${3:fileName}';",
-            "export const ${2:nameArrayData} = [",
+            "$LINE_COMMENT ** Recuerda usarlo en un archivo js limpio, necesita un xml simple sin exposicion, importalo en el componente js que necesites **",
+            "$LINE COMMENT ** Para importar usa la siguiente linea, fileName debe ser sin .extension:",
+            "$LINE_COMMENT import { nameArrayData } from 'c/${1:fileName}';",
+            "export const nameArrayData = [",
             "   {",
             "       \"nombre\":\"prueba\"",
             "   }",
             "];",
             "$0"
         ],
-        "description": "Exporta un conjunto de datos"
+        "description": "Exporta un conjunto de datos que se pueden importar en un js de componente"
     },
     "(Setters And Getters)": {
         "prefix": "lwc-setter",
         "body": [
-            "// import { track, api } from 'lwc';",
-            "// Binding this component view",
-            "@track ${1:varView};",
+            "$LINE_COMMENT ** Es necesario en la cabecera de la clase ** import { track, api } from 'lwc';",
+            "$LINE_COMMENT ** Binding con la vista de este componente ** ",
+            "@track varView;",
             "",
-            "// Getter var from Parent",
-            "_${2:varView} = undefined;",
+            "$LINE_COMMENT ** Variable que se usara para responderle al padre ** ",
+            "_varView = undefined;",
             "",
-            "// Use set and get to process the value every time it's",
-            "// requested while switching between products",
-            "set ${6:apiName}(valueFromParent) {",
-            "    this._${3:varView} = valueFromParent;",
-            "    // Retorna el valor buscado dentro de un array",
-            "    this.${4:varView} = array.find(${8:varTemporal} => ${8:varTemporal}.value === valueFromParent);",
+            "$LINE_COMMENT ** Usala para hacer reactiva la propiedad expuesta al padre ** ",
+            "set apiName(valueFromParent) {",
+            "    this._varView = valueFromParent;",
+            "",
+            "    $LINE_COMMENT ** Si quieres homologar en un array ** ",
+            "    $LINE_COMMENT this.varView = array.find(varTemporal => varTemporal.value === valueFromParent);",
+            "",
             "}",
             "",
-            "// Getter for Parent view and Controller",
-            "@api get ${7:apiName}(){",
-            "    return this._${5:varView};",
+            "$LINE_COMMENT ** Metodo necesario para responder al padre ** ",
+            "@api get apiName(){",
+            "    return this._varView;",
             "}",
             "$0"
         ],
-        "description": "Genera un get y set api de componente hijo disponible para consumir con *call son* desde padre"
+        "description": "Generas un get y set de api para el componente hijo disponible para consumir con *lwc-callSon* desde padre"
     },
     "(Get Record on Line)": {
         "prefix": "lwc-getRecord",
         "body": [
-            "// Required on top class",
-            "// import { wire } from 'lwc';",
-            "// import { getRecord, getFieldValue } from 'lightning/uiRecordApi';",
-            "// import Id from '@salesforce/user/Id';",
-            "// import NAME_FIELD from '@salesforce/schema/User.Name';",
-            "// Schema of fields",
-            "// const fields = [NAME_FIELD];",
+            "$LINE_COMMENT ** Es necesario que agregues estos importes en la cabecera del js ** ",
+            "$LINE_COMMENT import { wire } from 'lwc';",
+            "$LINE_COMMENT import { getRecord, getFieldValue } from 'lightning/uiRecordApi';",
+            "$LINE_COMMENT import Id from '@salesforce/user/Id';",
+            "$LINE_COMMENT import NAME_FIELD from '@salesforce/schema/User.Name';",
+            "$LINE_COMMENT ** Estructura de campos, separados por comas **",
+            "$LINE_COMMENT const fields = [NAME_FIELD];",
             "",
             "",
             "// Required inside Class {}",
@@ -132,19 +134,20 @@
             "}",
             "$0"
         ],
-        "description": "Obtiene valores de los campos del registro desde la pagina en donde es ubicado el componente"
+        "description": "Obtienes valores de los campos del registro desde la pagina en donde es ubicado el componente"
     },
     "(Apex inside)": {
         "prefix": "lwc-callApex",
         "body": [
-            "// import { wire } from 'lwc';",
-            "// import ${1:methodName} from '@salesforce/apex/${4:className}.${2:methodName}';",
-            "// Rember create apex class with command lwc-apex",
+            "$LINE_COMMENT ** Es necesario que agregues estos importes en la cabecera del js ** ",
+            "$LINE_COMMENT import { wire } from 'lwc';",
+            "$LINE_COMMENT import ${1:methodName} from '@salesforce/apex/${4:className}.${2:methodName}';",
+            "$LINE_COMMENT ** Recuerda crear la clase apex a llamar usando el comando lwc-apex en una clase Apex de SalesForce ** ",
             "",
             "paramVal = null;",
-            "@wire(${3:methodName}, { paramName: '$paramVal' }) varReturnMethod;",
+            "@wire(${3:methodName}, { paramName: '$$paramVal' }) ${5:varReturnMethod};",
             "$0"
         ],
-        "description": "Permite llamar un apex con o sin parametros"
+        "description": "Te permite llamar un apex con o sin parametros"
     }
 }

@@ -2,17 +2,17 @@
     "(Apex inside lwc)": {
         "prefix": "lwc-apex",
         "body": [
-            "// ** Class **",
-            "// public with sharing class myClassName {}",
+            "$LINE_COMMENT ** Configuración primer linea de la Clase **",
+            "$LINE_COMMENT public with sharing class myClassName { bodyClass }",
             "",
             "",
-            "// ** On Class **",
+            "$LINE_COMMENT in {bodyClass}",
             "@AuraEnabled(cacheable=true)",
-            "public static Double ${1:methodName}() {",
+            "public static ${1|String,Boolean,Integer,Long,Double,Decimal,Date,TimeDatetime,ID,Object,Sobject,List<type>Map<key,val>,array[]|} ${2:methodName}() {",
             "    return 3886.79;",
             "}",
             "$0"
         ],
-        "description": "Clase que se puede exponer hacia lwc, recuerde usar lwc-callApex en un componente JS"
+        "description": "Clase que se puedes exponer hacia un lwc, puedes usar (lwc-callApex) en un componente"
     }
 }

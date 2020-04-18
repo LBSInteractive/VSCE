@@ -18,7 +18,7 @@
             "</targets>",
             "$0"
         ],
-        "description": "(Add access LWC for different pages) Records in AppPage,RecordPage and others parts"
+        "description": "Agrega este comando dentro de un </LightningComponentBundle> para permitir la visibilidad del componente"
     },
     "(XML Body)": {
         "prefix": "lwc-xml",
@@ -32,6 +32,6 @@
             "</LightningComponentBundle>",
             "$0"
         ],
-        "description": "(XML Base) General configs for xml base"
+        "description": "XML simple"
     }
 }

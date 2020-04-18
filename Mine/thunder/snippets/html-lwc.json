@@ -2,22 +2,21 @@
     "(Trigger Event)": {
         "prefix": "lwc-onchange",
         "body": [
-            "onchange={${1:methodName}}",
-            "$0"
+            "onchange={${1:methodName}} "
         ],
-        "description": "Permite disparar un evento en etiquetas </lightning-input>"
+        "description": "Te permite disparar un evento en etiquetas </lightning-input>"
     },
     "(ng Repeat)": {
         "prefix": "lwc-repeat",
         "body": [
-            "<template for:each={${1:Array}} for:item=\"${2:varPerRecord}\">",
-            "   <div key={${3:uniqueKeyPerRecord}}>",
-            "   {${4:varPerRecord}.val}",
+            "<template for:each={${1:array}} for:item=\"varPerRecord\">",
+            "   <div key={varPerRecord.${2:uniqueKeyPerRecord}}>",
+            "   {varPerRecord.val}",
             "   </div>",
             "</template>",
             "$0"
         ],
-        "description": "Permite repetir un arreglo dentro de una plantilla del tipo </template>"
+        "description": "Te permite repetir un arreglo dentro de una plantilla del tipo </template>"
     },
     "(ng If)": {
         "prefix": "lwc-if",
@@ -29,11 +28,11 @@
     "(call Son)": {
         "prefix": "lwc-callson",
         "body": [
-            "<!-- El nombre del componente debe ser camelCase: nameComponent = c-name-component -->",
-            "<!-- apiName = @api var -->",
-            "<c-${1:name-component} ${3:apiName}={${4:val}}> </c-${2:name-component}>",
+            "$BLOCK_COMMENT_START ** Ejemplo nombre del componente camelCase: c-name-component -> nameComponent ** $BLOCK_COMMENT_END",
+            "$BLOCK_COMMENT_START ** Enviar argumentos atraves del Api: apiName -> @api var , en JS del component $BLOCK_COMMENT_END",
+            "<c-name-component apiName={${1:val}}> </c-name-component>",
             "$0"
         ],
-        "description": "Puede utilizar una directiva hijo, pasando valores por sus atributos y usando la plantilla html de la directiva"
+        "description": "Puedes usar una directiva pasando valores por sus atributos API"
     }
 }
