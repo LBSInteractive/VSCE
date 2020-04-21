@@ -14,5 +14,115 @@
             "$0"
         ],
         "description": "Clase que se puedes exponer hacia un lwc, puedes usar (lwc-callApex) en un componente"
+    },
+    "(Scheduler)": {
+        "prefix": "lwc-scheduler",
+        "body": [
+            "global class ${1:nameClass} implements Schedulable{",
+            "    ",
+            "    global void execute(SchedulableContext cntx) {",
+            "        Datetime timeNow = System.now();",
+            "        trmScheduler nextScheduler = new trmScheduler();",
+            "        $LINE_COMMENTS CHRON_EXP (sec min hora days month weekday years) usa ? para no definir y * para todos, ejemplo years = 0 entonces todos los años",
+            "        String chron_exp = '0 0 0 * * ? *';",
+            "        System.schedule('Log: ' + timeNow.getTime(), chron_exp, nextScheduler);",
+            "",
+            "        //your Code",
+            "    }",
+            "    ",
+            "}",
+            "$0"
+        ],
+        "description": "Clase programada, tambien son conocidos como jobs"
+    },
+    "(Request)": {
+        "prefix": "lwc-request",
+        "body": [
+            "@future(callout = true)",
+            "private static void service() {",
+            "",
+            "    $LINE_COMMENT Request",
+            "    Http http = new Http();",
+            "    HttpRequest request = new HttpRequest();",
+            "    request.setMethod('${1|GET,POST|}');",
+            "    $LINE_COMMENT setTimeout --> milliseconds",
+            "    request.setTimeout(20000);",
+            "    request.setEndpoint('https://www.datos.gov.co/resource/32sa-8pi3.json?$select=valor&$order=vigenciahasta DESC&$limit=1');",
+            "",
+            "    $LINE_COMMENT Http",
+            "    HTTPResponse response = http.send(request);",
+            "    System.debug(response.getBody());",
+            "",
+            "    $LINE_COMMENT Your code",
+            "",
+            "}",
+            "0"
+        ],
+        "description": "Puedes usar este metodo para hacer llamadas rest y obtener su respuesta"
+    },
+    "(parseJson)": {
+        "prefix": "lwc-jsonToClass",
+        "body": [
+            "List<ResponseScheme> lista =(List<ResponseScheme>) JSON.deserialize(${1:yourJson},List<ResponseScheme>.class);",
+            "",
+            "",
+            "$LINE_COMMENT ** Internal Class **",
+            "public class ResponseScheme {",
+            "        public String valor;",
+            "}",
+            "$0"
+        ],
+        "description": "Puedes usar una clase para decodificar tu Json y luego usarla como cualquier otro objeto"
+    },
+    "(tokenSessionExamble)": {
+        "prefix": "lwc-tokenSessionIdExample",
+        "body": [
+            "00T5A0000004oAc!EWwGDWc5SxVdfSDFx5aE011defgrgh5Rer.Dd0EF5SW83FSAvRRfdRdEfcEf2FAfx3efe5c5DxDdDvDrewdv2sG_BkEaCHvf",
+            "$0"
+        ],
+        "description": "Ejemplo de un token de sesión salesforce"
+    },
+    "(GetTokenSession)": {
+        "prefix": "lwc-getTokenSessionId",
+        "body": [
+            "System.debug(EncodingUtil.base64Encode(Blob.valueOf(userinfo.getSessionId())));",
+            "$0"
+        ],
+        "description": "Forzar token (Token de muy alto nivel, no deberia ser consultado ni expuesto)"
+    },
+    "(GetBaseURL)": {
+        "prefix": "lwc-getBaseURL",
+        "body": [
+            "System.debug(URL.getSalesforceBaseUrl().toExternalForm());",
+            "$0"
+        ],
+        "description": "Base URL de la instancia actual"
+    },
+    "(GetServiceSOAP)": {
+        "prefix": "lwc-soap",
+        "body": [
+            "Http http = new Http();",
+            "HttpRequest request = new HttpRequest();",
+            "",
+            "request.setEndpoint(URL.getSalesforceBaseUrl().toExternalForm() + '/services/data/v47.0/sobjects/CurrencyType/');",
+            "request.setMethod('POST');",
+            "request.setBody('{ \"IsoCode\" : \"NIO\", \"DecimalPlaces\" : 4, \"ConversionRate\" : 32.0299, \"IsActive\" : \"true\" }');",
+            "request.setHeader('Authorization', 'OAuth ' + UserInfo.getSessionId());",
+            "request.setHeader('Content-Type', 'application/json');",
+            "",
+            "HTTPResponse response = http.send(request);",
+            "$0"
+        ],
+        "description": "Post SOAP (Api Salesforce)"
+    },
+    "(Setter And Getter Apex)": {
+        "prefix": "lwc-setter",
+        "body": [
+            "$LINE_COMMENT ** No termina en coma **",
+            "$LINE_COMMENT ** Se accede con (instanceClass.nameVar = null)**",
+            "public String nameVar {get; set;}",
+            "$0"
+        ],
+        "description": "Setter and Getters Apex"
     }
 }

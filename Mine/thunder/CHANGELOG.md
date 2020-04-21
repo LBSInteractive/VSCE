@@ -1,5 +1,12 @@
 ## [Unreleased]
-Beta Apex,XML,LWC,JS,HTML,BACTH
+lwc-scheduler             --> Clase programada, tambien son conocidos como jobs
+lwc-request               --> Puedes usar este metodo para hacer llamadas rest y obtener su respuesta
+lwc-jsonToClass           --> Puedes usar una clase para decodificar tu Json y luego usarla como cualquier otro objeto
+lwc-tokenSessionIdExample --> Ejemplo de un token de sesión salesforce
+lwc-getTokenSessionId     --> Forzar token (Token de muy alto nivel, no deberia ser consultado ni expuesto)
+lwc-getBaseURL            --> Base URL de la instancia actual
+lwc-soap                  --> Post SOAP (Api Salesforce)
+lwc-setter                --> Setter and Getters Apex
 
 ## [1.0.0] - 2020-04-14
 ### Added
@@ -7,8 +14,8 @@ Beta Apex,XML,LWC,JS,HTML,BACTH
 
 
 ### Changed
-- Publish Beta
+- Hemos agregado comandos para tus clases Apex
 
 
 ### Removed
-- None
+- Ninguna función ha sido removida
