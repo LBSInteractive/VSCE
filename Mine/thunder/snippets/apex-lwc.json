@@ -234,6 +234,6 @@
             "}",
             "$0"
         ],
-        "description": "Create class constructor"
+        "description": "Create class constructors"
     }
 }
