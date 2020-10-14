@@ -1,6 +1,6 @@
 {
     "(Apex inside lwc)": {
-        "prefix": "lwc-apex",
+        "prefix": "lwc-apex4LWC",
         "body": [
             "$LINE_COMMENT ** Configuración primer linea de la Clase **",
             "$LINE_COMMENT public with sharing class myClassName { bodyClass }",
@@ -136,7 +136,7 @@
             "        // Create a fake response",
             "        HttpResponse response = new HttpResponse();",
             "        response.setHeader('Content-Type', 'application/json');",
-            "        response.setBody('{\"animals\": [\"majestic badger\", \"fluffy bunny\", \"scary bear\", \"chicken", \"mighty moose\"]}');",
+            "        response.setBody('{\"animals\": [\"majestic badger\", \"fluffy bunny\", \"scary bear\", \"chicken\",\"mighty moose\"]}');",
             "        response.setStatusCode(200);",
             "        return response; ",
             "    }",
@@ -147,7 +147,7 @@
         "description": "Puedes usar este metodo para crear tu clase Test de un servicio usando una Clase como Mock"
     },
     "(parseJson)": {
-        "prefix": "lwc-jsonToClass",
+        "prefix": "lwc-jsonManualClass",
         "body": [
             "List<ResponseScheme> lista =(List<ResponseScheme>) JSON.deserialize(${1:yourJson},List<ResponseScheme>.class);",
             "",
@@ -160,8 +160,16 @@
         ],
         "description": "Puedes usar una clase para decodificar tu Json y luego usarla como cualquier otro objeto"
     },
+    "(Json2Parse)": {
+        "prefix": "lwc-json2Apex",
+        "body": [
+            "https://json2apex.herokuapp.com/",
+            "$0"
+        ],
+        "description": "Puedes usar una clase para decodificar tu Json y luego usarla como cualquier otro objeto"
+    },
     "(tokenSessionExamble)": {
-        "prefix": "lwc-tokenSessionIdExample",
+        "prefix": "lwc-mock-tokenSessionIdExample",
         "body": [
             "00T5A0000004oAc!EWwGDWc5SxVdfSDFx5aE011defgrgh5Rer.Dd0EF5SW83FSAvRRfdRdEfcEf2FAfx3efe5c5DxDdDvDrewdv2sG_BkEaCHvf",
             "$0"
@@ -179,6 +187,7 @@
     "(GetBaseURL)": {
         "prefix": "lwc-getBaseURL",
         "body": [
+            "$LINE_COMMENT ** No necesita instanciar URL **",
             "System.debug(URL.getSalesforceBaseUrl().toExternalForm());",
             "$0"
         ],
@@ -210,5 +219,21 @@
             "$0"
         ],
         "description": "Setter and Getters Apex"
+    },
+    "(Constructors)": {
+        "prefix": "lwc-constructors",
+        "body": [
+            "// Constructores Apex",
+            "",
+            "public ${1:MyConstructorName}() {",
+            "    this(10); // Call MyConstructorNameOverCharged",
+            "}",
+            "",
+            "public ${2:MyConstructorNameOverCharged}(Integer value){",
+            "    // Code",
+            "}",
+            "$0"
+        ],
+        "description": "Create class constructor"
     }
 }

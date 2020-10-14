@@ -73,7 +73,7 @@
         "prefix": "lwc-dataExport",
         "body": [
             "$LINE_COMMENT ** Recuerda usarlo en un archivo js limpio, necesita un xml simple sin exposicion, importalo en el componente js que necesites **",
-            "$LINE COMMENT ** Para importar usa la siguiente linea, fileName debe ser sin .extension:",
+            "$LINE_COMMENT ** Para importar usa la siguiente linea, fileName debe ser sin .extension:",
             "$LINE_COMMENT import { nameArrayData } from 'c/${1:fileName}';",
             "export const nameArrayData = [",
             "   {",
