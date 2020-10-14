@@ -26,7 +26,7 @@ lwc-yourCommand
 
 ## 🔧 Notas de la versión 
 **Nuevo**
-### 2.0.0
+### 2.2.1
 - Apex (lwc-requestGet)
 - Apex (lwc-requestPost)
 - Apex (lwc-requestTestStatic)
